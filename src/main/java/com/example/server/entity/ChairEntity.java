@@ -9,7 +9,7 @@ public class ChairEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-
+    private String facultyName;
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "faculty_id", referencedColumnName = "id")
     private FacultyEntity faculty;
@@ -28,5 +28,9 @@ public class ChairEntity {
     }
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getFacultyName() {
+        return this.faculty.getName();
     }
 }

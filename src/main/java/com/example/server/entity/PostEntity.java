@@ -10,7 +10,7 @@ public class PostEntity {
     private Integer id;
     private String name;
 
-    @OneToOne(mappedBy = "post")
+    @OneToOne(fetch = FetchType.LAZY)
     private TeacherEntity teacher;
     public PostEntity() {}
     public Integer getId () {

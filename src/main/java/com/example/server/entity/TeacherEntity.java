@@ -23,7 +23,8 @@ public class TeacherEntity {
     private String pRelease;
     private String pIssued;
     private String pDivisionCode;
-
+    private String chairName;
+    private String postName;
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "chair_id", referencedColumnName = "id")
     private ChairEntity chair;
@@ -31,9 +32,7 @@ public class TeacherEntity {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id", referencedColumnName = "id")
     private PostEntity post;
-
-    public TeacherEntity() {}
-
+    public TeacherEntity() { }
     public TeacherEntity(Integer id) {
         this.id = id;
     }
@@ -132,5 +131,13 @@ public class TeacherEntity {
 
     public void setpDivisionCode(String pDivisionCode) {
         this.pDivisionCode = pDivisionCode;
+    }
+
+    public String getChairName() {
+        return this.chair.getName();
+    }
+
+    public String getPostName() {
+        return this.post.getName();
     }
 }

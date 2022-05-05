@@ -13,7 +13,6 @@ public class FacultyEntity {
 
     @OneToOne(mappedBy = "faculty")
     private ChairEntity chair;
-
     public FacultyEntity() {}
     public FacultyEntity(Integer id) {
         this.id = id;
