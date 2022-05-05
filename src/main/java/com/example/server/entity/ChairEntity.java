@@ -10,19 +10,23 @@ public class ChairEntity {
     private Integer id;
     private String name;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "faculty_id", referencedColumnName = "id")
     private FacultyEntity faculty;
 
-    @OneToOne(mappedBy = "chair")
+    @OneToOne(fetch = FetchType.LAZY)
     private TeacherEntity teacher;
-
     public ChairEntity() {}
-
-    public String name() {
+    public Integer getId () {
+        return id;
+    }
+    public String getName() {
         return name;
     }
-    public void name(String name) {
+    public void setName(String name) {
         this.name = name;
+    }
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

@@ -8,17 +8,26 @@ public class FacultyEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "name")
     private String name;
 
     @OneToOne(mappedBy = "faculty")
     private ChairEntity chair;
 
     public FacultyEntity() {}
-
-    public String name() {
+    public FacultyEntity(Integer id) {
+        this.id = id;
+    }
+    public Integer getId() {
+        return id;
+    }
+    public String getName() {
         return name;
     }
-    public void name(String name) {
+    public void setName(String name) {
         this.name = name;
+    }
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

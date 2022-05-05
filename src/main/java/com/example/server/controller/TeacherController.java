@@ -1,7 +1,6 @@
 package com.example.server.controller;
 
 import com.example.server.entity.TeacherEntity;
-import com.example.server.repository.TeacherRepo;
 import com.example.server.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,9 +21,6 @@ public class TeacherController {
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
-//        catch (Exception e) {
-//            return  ResponseEntity.badRequest().body("An error has occurred");
-//        }
     }
 
     @GetMapping(params = "firstName")
@@ -38,7 +34,7 @@ public class TeacherController {
                 return ResponseEntity.ok(t);
             }
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Error, sorry");
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 
@@ -48,7 +44,7 @@ public class TeacherController {
             Iterable<TeacherEntity> t = teacherService.getTeachers();
             return ResponseEntity.ok(t);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Error, sorry");
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 }
